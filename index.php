@@ -6,5 +6,11 @@ $result = mysqli_query($conn, $query);
 
 $num_column = mysqli_num_fields($result);		
 
+$csv_header = '';
+for($i=0;$i<$num_column;$i++) {
+    $csv_header .= '"' . mysqli_fetch_field_direct($result,$i)->name . '",';
+}	
+$csv_header .= "\n";
+
 
 ?>
