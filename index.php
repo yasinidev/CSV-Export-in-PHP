@@ -12,5 +12,13 @@ for($i=0;$i<$num_column;$i++) {
 }	
 $csv_header .= "\n";
 
+$csv_row ='';
+while($row = mysqli_fetch_row($result)) {
+	for($i=0;$i<$num_column;$i++) {
+		$csv_row .= '"' . $row[$i] . '",';
+	}
+	$csv_row .= "\n";
+}	
+
 
 ?>
